@@ -1,0 +1,228 @@
+{
+  "key": "group_61576dd49cd7f",
+  "title": "Hochschulen",
+  "fields": [
+    {
+      "key": "field_61576fbf54db8",
+      "label": "Bundesland",
+      "name": "bundesland",
+      "aria-label": "",
+      "type": "post_object",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "post_type": [
+        "bundeslaender"
+      ],
+      "taxonomy": "",
+      "allow_null": 0,
+      "multiple": 0,
+      "return_format": "object",
+      "ui": 1,
+      "bidirectional_target": []
+    },
+    {
+      "key": "field_61576def54db5",
+      "label": "Adresse",
+      "name": "adresse",
+      "aria-label": "",
+      "type": "text",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "placeholder": "",
+      "prepend": "",
+      "append": "",
+      "maxlength": ""
+    },
+    {
+      "key": "field_61576dfa54db6",
+      "label": "Hochschulart",
+      "name": "hochschulart",
+      "aria-label": "",
+      "type": "radio",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "choices": {
+        "Universitäten": "Universitäten",
+        "Unikliniken": "Unikliniken"
+      },
+      "allow_null": 0,
+      "other_choice": 0,
+      "default_value": "Universitäten",
+      "layout": "vertical",
+      "return_format": "value",
+      "save_other_choice": 0
+    },
+    {
+      "key": "field_616c44cc48f9f",
+      "label": "Letzte Aktualisierung",
+      "name": "date_update",
+      "aria-label": "",
+      "type": "text",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "placeholder": "Die Daten dieser Hochschule wurden letztmalig im Frühjahr 2035 aktualisiert.",
+      "prepend": "",
+      "append": "",
+      "maxlength": ""
+    },
+    {
+      "key": "field_616551e18e566",
+      "label": "Text",
+      "name": "text",
+      "aria-label": "",
+      "type": "wysiwyg",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "tabs": "all",
+      "toolbar": "full",
+      "media_upload": 1,
+      "delay": 0
+    },
+    {
+      "key": "field_615771d99896e",
+      "label": "Drittmittel",
+      "name": "drittmittel",
+      "aria-label": "",
+      "type": "repeater",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "collapsed": "",
+      "min": 0,
+      "max": 0,
+      "layout": "table",
+      "button_label": "Eintrag hinzufügen",
+      "sub_fields": [
+        {
+          "key": "field_6157744d9896f",
+          "label": "Jahr",
+          "name": "jahr",
+          "aria-label": "",
+          "type": "range",
+          "instructions": "",
+          "required": 0,
+          "conditional_logic": 0,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "default_value": "",
+          "min": 2010,
+          "max": 2030,
+          "step": "",
+          "prepend": "",
+          "append": "",
+          "parent_repeater": "field_615771d99896e"
+        },
+        {
+          "key": "field_6157746e98970",
+          "label": "Wirtschaft Euro",
+          "name": "wirtschaft",
+          "aria-label": "",
+          "type": "number",
+          "instructions": "",
+          "required": 0,
+          "conditional_logic": 0,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "default_value": "",
+          "placeholder": "",
+          "prepend": "",
+          "append": "",
+          "min": 0,
+          "max": "",
+          "step": 1,
+          "parent_repeater": "field_615771d99896e"
+        },
+        {
+          "key": "field_6157748398971",
+          "label": "Absolut Euro",
+          "name": "absolut",
+          "aria-label": "",
+          "type": "number",
+          "instructions": "",
+          "required": 0,
+          "conditional_logic": 0,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "default_value": "",
+          "placeholder": "",
+          "prepend": "",
+          "append": "",
+          "min": 0,
+          "max": "",
+          "step": 1,
+          "parent_repeater": "field_615771d99896e"
+        }
+      ],
+      "rows_per_page": 20
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "post_type",
+        "operator": "==",
+        "value": "hochschulen"
+      }
+    ]
+  ],
+  "menu_order": 0,
+  "position": "normal",
+  "style": "seamless",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "hide_on_screen": "",
+  "active": true,
+  "description": "",
+  "show_in_rest": false,
+  "display_title": "",
+  "enable_acf_abilities": true,
+  "ai_description": "",
+  "private": true
+}

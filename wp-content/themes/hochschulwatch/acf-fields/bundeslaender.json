@@ -1,0 +1,118 @@
+{
+  "key": "group_615756aec5990",
+  "title": "Bundesländer",
+  "fields": [
+    {
+      "key": "field_615756b9ce4c1",
+      "label": "Wappen",
+      "name": "wappen",
+      "aria-label": "",
+      "type": "image",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "return_format": "url",
+      "preview_size": "medium",
+      "library": "all",
+      "min_width": "",
+      "min_height": "",
+      "min_size": "",
+      "max_width": "",
+      "max_height": "",
+      "max_size": "",
+      "mime_types": ""
+    },
+    {
+      "key": "field_6157571b2ee51",
+      "label": "Infos",
+      "name": "infos",
+      "aria-label": "",
+      "type": "repeater",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "collapsed": "",
+      "min": 0,
+      "max": 0,
+      "layout": "table",
+      "button_label": "Eintrag hinzufügen",
+      "sub_fields": [
+        {
+          "key": "field_6157572e2ee52",
+          "label": "Name",
+          "name": "name",
+          "aria-label": "",
+          "type": "text",
+          "instructions": "",
+          "required": 1,
+          "conditional_logic": 0,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "default_value": "",
+          "placeholder": "",
+          "prepend": "",
+          "append": "",
+          "maxlength": "",
+          "parent_repeater": "field_6157571b2ee51"
+        },
+        {
+          "key": "field_615757872ee53",
+          "label": "Wert",
+          "name": "wert",
+          "aria-label": "",
+          "type": "text",
+          "instructions": "",
+          "required": 1,
+          "conditional_logic": 0,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "default_value": "",
+          "placeholder": "",
+          "prepend": "",
+          "append": "",
+          "maxlength": "",
+          "parent_repeater": "field_6157571b2ee51"
+        }
+      ],
+      "rows_per_page": 20
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "post_type",
+        "operator": "==",
+        "value": "bundeslaender"
+      }
+    ]
+  ],
+  "menu_order": 0,
+  "position": "normal",
+  "style": "seamless",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "hide_on_screen": "",
+  "active": true,
+  "description": "",
+  "show_in_rest": false,
+  "display_title": "",
+  "enable_acf_abilities": true,
+  "ai_description": "",
+  "private": true
+}

@@ -35,14 +35,19 @@ wp-config.php
 # htaccess
 /.htaccess
 
-# All plugins
-#
-# Note: If you wish to whitelist plugins,
-# uncomment the next line
-#/wp-content/plugins
+# Versioniert wird nur das eigene Child-Theme.
+/wp-content/*
+!/wp-content/themes/
+/wp-content/themes/*
+!/wp-content/themes/hochschulwatch/
 
-# All themes
-#
-# Note: If you wish to whitelist themes,
-# uncomment the next line
-#/wp-content/themes
+# Lokale Konfiguration und Backups
+.env
+.env.*
+wp-config*.php
+/backup/
+/backups/
+*.sql
+*.sql.*
+*.sqlite*
+*.wpress

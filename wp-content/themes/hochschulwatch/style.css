@@ -1,0 +1,78 @@
+/*
+ Theme Name:   Hochschulwatch Österreich
+ Theme URI:    https://netaction.de
+ Description:  Hochschulwatch Österreich
+ Author:       Thomas Schmidt
+ Author URI:   https://netaction.de
+ Template:     generatepress
+ Version:      1.0
+*/
+
+/* Generelles */
+p {
+	margin-bottom: 1em;
+}
+ul {
+	margin-left: 1.5em;
+}
+h4, h5, h6 {
+	margin-bottom: 4px;
+}
+
+/* Kleiner Button für Quellen oder weiterführende Informationen */
+.button {
+	border-radius: 10px;
+	line-height: 1.2em;
+}
+.button--small {
+	font-size: 13px;
+	padding: 3px 8px;
+}
+.button--super {
+	vertical-align: super;
+}
+a.button--gray {
+	background-color: #aaa;
+}
+
+/* Kein Abstract in Archives */
+.archive .entry-summary {
+	display: none;
+}
+
+/* Bunte Tabellen für Förderungen */
+.table {
+	border-width: 0;
+}
+.table tbody tr:nth-child(odd) {
+	background-color: #eee;
+}
+.table td, .table th {
+	border-width: 0 0 1px 0;
+	text-align: left;
+}
+.table__wrapper {
+	overflow-x: auto;
+}
+
+/* Text rechtsbündig z.B. für Zahlen */
+.text-right {
+	text-align: right!important;
+}
+
+/* Wappen */
+.bundeslandwappen {
+	width: 100%;
+	max-width: 70px;
+	height: auto;
+	display: block;
+}
+
+/* Graue Box für hervorgehobene Text */
+.graybox {
+	background-color: #f5f5f5;
+	padding: 10px;
+	margin-bottom: 30px;
+	border: 1px solid #eee;
+}
+
