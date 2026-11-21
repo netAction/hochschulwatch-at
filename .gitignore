@@ -8,12 +8,14 @@
 /xmlrpc.php
 /.htaccess
 
-# Plugins, Uploads und andere WordPress-Inhalte bleiben außerhalb von Git.
-# Git muss den themes-Ordner sehen, bevor es das Child-Theme freigeben kann.
+# Eigene WordPress-Komponenten für Git freigeben.
 /wp-content/*
 !/wp-content/themes/
 /wp-content/themes/*
 !/wp-content/themes/hochschulwatch/
+!/wp-content/plugins/
+/wp-content/plugins/*
+!/wp-content/plugins/hochschulwatch-mailabsender/
 
 # Lokale Konfiguration, Logs und Backups
 .env
