@@ -57,11 +57,10 @@ function render_hochschule_foerderer( $beitrag_id ) {
 	}
 
 	$text = get_field( 'text', $beitrag_id );
-	$feld = $ist_hochschule ? 'hochschule' : 'foerderer';
-	$partnerfeld = $ist_hochschule ? 'foerderer' : 'hochschule';
 	get_template_part( 'template-parts/single/foerderungen', null, array(
 		'text' => $text,
-		'gruppen' => foerderungen_nach_typ( $feld, $beitrag_id, $partnerfeld ),
+		'ist_hochschule' => $ist_hochschule,
+		'gruppen' => foerderungen_nach_typ( $beitrag_id, $ist_hochschule ),
 	) );
 }
 
@@ -71,7 +70,7 @@ function render_hochschulkopf( $beitrag_id ) {
 		'bundesland' => $bundesland,
 		'adresse' => get_field( 'adresse', $beitrag_id ),
 		'hochschulart' => get_field( 'hochschulart', $beitrag_id ),
-		'aktualisiert' => get_field( 'date_update', $beitrag_id ),
+		'aktualisiert' => get_field( 'date_update', $beitrag_id ) ?: get_post_meta( $beitrag_id, 'date_update', true ),
 		'wappen' => $bundesland ? get_field( 'wappen', $bundesland->ID ) : '',
 		'infos' => $bundesland ? get_field( 'infos', $bundesland->ID ) : array(),
 	) );

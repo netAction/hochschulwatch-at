@@ -13,6 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 require_once __DIR__ . '/inc/setup.php';
+require_once __DIR__ . '/inc/acf-bestandsdaten.php';
 require_once __DIR__ . '/inc/post-types.php';
 require_once __DIR__ . '/inc/queries.php';
 require_once __DIR__ . '/inc/drittmittel.php';

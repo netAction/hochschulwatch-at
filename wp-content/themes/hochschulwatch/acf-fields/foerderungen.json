@@ -27,30 +27,6 @@
       "bidirectional_target": []
     },
     {
-      "key": "field_61577d3db940f",
-      "label": "Förderer",
-      "name": "foerderer",
-      "aria-label": "",
-      "type": "post_object",
-      "instructions": "",
-      "required": 0,
-      "conditional_logic": 0,
-      "wrapper": {
-        "width": "",
-        "class": "",
-        "id": ""
-      },
-      "post_type": [
-        "foerderer"
-      ],
-      "taxonomy": "",
-      "allow_null": 0,
-      "multiple": 0,
-      "return_format": "object",
-      "ui": 1,
-      "bidirectional_target": []
-    },
-    {
       "key": "field_615782b31819e",
       "label": "Typ",
       "name": "typ",
@@ -75,6 +51,108 @@
       "layout": "horizontal",
       "return_format": "value",
       "save_other_choice": 0
+    },
+    {
+      "key": "field_61577d3db940f",
+      "label": "Förderer",
+      "name": "foerderer",
+      "aria-label": "",
+      "type": "post_object",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": [
+        [
+          {
+            "field": "field_615782b31819e",
+            "operator": "==",
+            "value": "hochschulgremium"
+          }
+        ],
+        [
+          {
+            "field": "field_615782b31819e",
+            "operator": "==",
+            "value": "sponsoring"
+          }
+        ],
+        [
+          {
+            "field": "field_615782b31819e",
+            "operator": "==",
+            "value": "sonstiges"
+          }
+        ]
+      ],
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "post_type": [
+        "foerderer"
+      ],
+      "taxonomy": "",
+      "allow_null": 0,
+      "multiple": 0,
+      "return_format": "object",
+      "ui": 1,
+      "bidirectional_target": []
+    },
+    {
+      "key": "field_hsw_foerderer_liste",
+      "label": "Förderer",
+      "name": "foerderer_liste",
+      "aria-label": "",
+      "type": "repeater",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": [
+        [
+          {
+            "field": "field_615782b31819e",
+            "operator": "==",
+            "value": "stiftungsprofessur"
+          }
+        ]
+      ],
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "collapsed": "",
+      "min": 0,
+      "max": 0,
+      "layout": "table",
+      "pagination": 0,
+      "button_label": "Förderer hinzufügen",
+      "sub_fields": [
+        {
+          "key": "field_hsw_stifter_foerderer",
+          "label": "Förderer",
+          "name": "foerderer",
+          "aria-label": "",
+          "type": "post_object",
+          "instructions": "",
+          "required": 1,
+          "conditional_logic": 0,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "post_type": [
+            "foerderer"
+          ],
+          "taxonomy": "",
+          "allow_null": 0,
+          "multiple": 0,
+          "return_format": "object",
+          "ui": 1,
+          "bidirectional_target": [],
+          "parent_repeater": "field_hsw_foerderer_liste"
+        }
+      ]
     },
     {
       "key": "field_61577d6fb9411",
@@ -253,11 +331,11 @@
       "step": 1
     },
     {
-      "key": "field_61577d7fb9412",
-      "label": "Quelle URL",
-      "name": "sourceurl",
+      "key": "field_hsw_quellen",
+      "label": "Quellen",
+      "name": "quellen",
       "aria-label": "",
-      "type": "url",
+      "type": "repeater",
       "instructions": "",
       "required": 0,
       "conditional_logic": 0,
@@ -266,8 +344,32 @@
         "class": "",
         "id": ""
       },
-      "default_value": "",
-      "placeholder": ""
+      "collapsed": "",
+      "min": 0,
+      "max": 0,
+      "layout": "table",
+      "pagination": 0,
+      "button_label": "Quelle hinzufügen",
+      "sub_fields": [
+        {
+          "key": "field_hsw_quelle_url",
+          "label": "URL",
+          "name": "url",
+          "aria-label": "",
+          "type": "url",
+          "instructions": "",
+          "required": 1,
+          "conditional_logic": 0,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "default_value": "",
+          "placeholder": "",
+          "parent_repeater": "field_hsw_quellen"
+        }
+      ]
     }
   ],
   "location": [

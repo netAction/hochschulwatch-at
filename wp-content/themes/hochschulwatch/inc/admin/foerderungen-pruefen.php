@@ -35,11 +35,16 @@ function pruefe_foerderungen() {
 			$fehlende_zuordnungen[] = array( 'beitrag' => $foerderung, 'feld' => 'Hochschule' );
 		}
 
-		$partner = get_field( 'foerderer', $foerderung->ID );
-		if ( ! $partner || 'foerderer' !== $partner->post_type || ! in_array( $partner->post_status, $status, true ) ) {
+		$partnerliste = foerderer_einer_foerderung( $foerderung->ID, foerderungstyp( $foerderung->ID ) );
+		$gueltige_partner = 0;
+		foreach ( $partnerliste as $partner ) {
+			if ( $partner && 'foerderer' === $partner->post_type && in_array( $partner->post_status, $status, true ) ) {
+				$zugeordnete_foerderer[ $partner->ID ] = true;
+				++$gueltige_partner;
+			}
+		}
+		if ( 0 === $gueltige_partner || $gueltige_partner < count( $partnerliste ) ) {
 			$fehlende_zuordnungen[] = array( 'beitrag' => $foerderung, 'feld' => 'Förderer' );
-		} else {
-			$zugeordnete_foerderer[ $partner->ID ] = true;
 		}
 	}
 

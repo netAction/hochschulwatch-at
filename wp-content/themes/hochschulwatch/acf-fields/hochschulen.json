@@ -61,14 +61,18 @@
         "id": ""
       },
       "choices": {
-        "Universitäten": "Universitäten",
-        "Unikliniken": "Unikliniken"
+        "oeffentliche_hochschule": "Öffentliche Hochschule",
+        "fachhochschule": "Fachhochschule",
+        "paedagogische_hochschule": "Pädagogische Hochschule",
+        "privathochschule": "Privathochschulen und Privatuniversitäten",
+        "universitaet": "Universität",
+        "uniklinik": "Uniklinik"
       },
-      "allow_null": 0,
+      "allow_null": 1,
       "other_choice": 0,
-      "default_value": "Universitäten",
+      "default_value": "",
       "layout": "vertical",
-      "return_format": "value",
+      "return_format": "label",
       "save_other_choice": 0
     },
     {
@@ -76,7 +80,7 @@
       "label": "Letzte Aktualisierung",
       "name": "date_update",
       "aria-label": "",
-      "type": "text",
+      "type": "date_picker",
       "instructions": "",
       "required": 0,
       "conditional_logic": 0,
@@ -85,11 +89,9 @@
         "class": "",
         "id": ""
       },
-      "default_value": "",
-      "placeholder": "Die Daten dieser Hochschule wurden letztmalig im Frühjahr 2035 aktualisiert.",
-      "prepend": "",
-      "append": "",
-      "maxlength": ""
+      "display_format": "d.m.Y",
+      "return_format": "d.m.Y",
+      "first_day": 1
     },
     {
       "key": "field_616551e18e566",
@@ -146,16 +148,16 @@
             "id": ""
           },
           "default_value": "",
-          "min": 2010,
-          "max": 2030,
-          "step": "",
+          "min": 2020,
+          "max": 2035,
+          "step": 1,
           "prepend": "",
           "append": "",
           "parent_repeater": "field_615771d99896e"
         },
         {
           "key": "field_6157746e98970",
-          "label": "Wirtschaft Euro",
+          "label": "Private Wirtschaft Euro",
           "name": "wirtschaft",
           "aria-label": "",
           "type": "number",
@@ -178,8 +180,31 @@
         },
         {
           "key": "field_6157748398971",
-          "label": "Absolut Euro",
+          "label": "Gesamte Drittmittel Euro",
           "name": "absolut",
+          "aria-label": "",
+          "type": "number",
+          "instructions": "",
+          "required": 0,
+          "conditional_logic": 0,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "default_value": "",
+          "placeholder": "",
+          "prepend": "",
+          "append": "",
+          "min": 0,
+          "max": "",
+          "step": 1,
+          "parent_repeater": "field_615771d99896e"
+        },
+        {
+          "key": "field_hsw_einnahmen",
+          "label": "Gesamte Einnahmen Euro",
+          "name": "einnahmen",
           "aria-label": "",
           "type": "number",
           "instructions": "",

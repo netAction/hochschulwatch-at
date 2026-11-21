@@ -6,20 +6,23 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-$partnerlink = static function ( $partner ) {
-	if ( $partner ) {
-		echo '<a href="' . esc_url( get_permalink( $partner ) ) . '">' . esc_html( get_the_title( $partner ) ) . '</a>';
+$partnerlinks = static function ( $partnerliste ) {
+	$links = array();
+	foreach ( array_filter( $partnerliste ) as $partner ) {
+		$links[] = '<a href="' . esc_url( get_permalink( $partner ) ) . '">' . esc_html( get_the_title( $partner ) ) . '</a>';
 	}
+	echo implode( ', ', $links );
 };
 
-$quellenlink = static function ( $url, $oberhalb = false ) {
-	$quelle = trim( (string) $url );
-	if ( $quelle ) {
-		$klasse = $oberhalb ? 'button button--small button--super button--gray' : 'button button--small button--gray';
-		echo ' <a href="' . esc_url( $quelle ) . '" target="_blank" class="' . esc_attr( $klasse ) . '">Quelle</a>';
-		if ( $oberhalb ) {
-			echo '<br>';
-		}
+$quellenlinks = static function ( $urls, $oberhalb = false ) {
+	$links = array_values( array_filter( array_map( 'esc_url', array_filter( $urls, 'is_string' ) ) ) );
+	$klasse = $oberhalb ? 'button button--small button--super button--gray' : 'button button--small button--gray';
+	foreach ( $links as $index => $url ) {
+		$label = count( $links ) > 1 ? 'Quelle ' . ( $index + 1 ) : 'Quelle';
+		echo ' <a href="' . $url . '" target="_blank" class="' . esc_attr( $klasse ) . '">' . esc_html( $label ) . '</a>';
+	}
+	if ( $links && $oberhalb ) {
+		echo '<br>';
 	}
 };
 
@@ -42,10 +45,10 @@ $gruppen = $args['gruppen'];
 					if ( $funktion ) {
 						echo ' (' . esc_html( $funktion ) . ')';
 					}
-					$quellenlink( $eintrag['sourceurl'] );
+					$quellenlinks( $eintrag['quellen'] );
 					?>
 				</td>
-				<td><?php $partnerlink( $eintrag['partner'] ); ?></td>
+				<td><?php $partnerlinks( $eintrag['partner'] ); ?></td>
 			</tr>
 		<?php endforeach; ?>
 	</tbody></table></div><br><br>
@@ -59,7 +62,7 @@ $gruppen = $args['gruppen'];
 			<?php foreach ( $gruppen['sponsoring'] as $eintrag ) : ?>
 				<?php $foerderung = $eintrag['beitrag']; ?>
 				<tr>
-					<td><?php $partnerlink( $eintrag['partner'] ); ?></td>
+					<td><?php $partnerlinks( $eintrag['partner'] ); ?></td>
 					<td class="text-right">
 						<?php
 						echo esc_html( trim( (string) $eintrag['leistung'] ) );
@@ -77,7 +80,7 @@ $gruppen = $args['gruppen'];
 						<?php
 						edit_post_link( '✍', '', ' ', $foerderung->ID, '' );
 						echo esc_html( get_the_title( $foerderung ) );
-						$quellenlink( $eintrag['sourceurl'] );
+						$quellenlinks( $eintrag['quellen'] );
 						?>
 					</td>
 				</tr>
@@ -94,10 +97,13 @@ $gruppen = $args['gruppen'];
 			<?php
 			edit_post_link( '✍', '', ' ', $foerderung->ID, '' );
 			echo esc_html( get_the_title( $foerderung ) );
-			$quellenlink( $eintrag['sourceurl'], true );
+			$quellenlinks( $eintrag['quellen'], true );
 			?>
 		</h3>
-		Stifter: <?php $partnerlink( $eintrag['partner'] ); ?><br>
+		<?php if ( ! $args['ist_hochschule'] ) : ?>
+			Hochschule: <?php $partnerlinks( $eintrag['partner'] ); ?><br>
+		<?php endif; ?>
+		Stifter: <?php $partnerlinks( $eintrag['foerderer'] ); ?><br>
 		<?php
 		$beginn = trim( (string) $eintrag['startdate'] );
 		if ( $beginn ) {
@@ -123,12 +129,12 @@ $gruppen = $args['gruppen'];
 		<?php foreach ( $gruppen['sonstiges'] as $eintrag ) : ?>
 			<?php $foerderung = $eintrag['beitrag']; ?>
 			<tr>
-				<td><?php $partnerlink( $eintrag['partner'] ); ?></td>
+				<td><?php $partnerlinks( $eintrag['partner'] ); ?></td>
 				<td>
 					<?php
 					edit_post_link( '✍', '', ' ', $foerderung->ID, '' );
 					echo esc_html( get_the_title( $foerderung ) );
-					$quellenlink( $eintrag['sourceurl'] );
+					$quellenlinks( $eintrag['quellen'] );
 					$betrag = $eintrag['amount'];
 					if ( $betrag > 0 ) {
 						echo '<br><em>Wert: ' . eurobetrag( $betrag ) . '</em>';
