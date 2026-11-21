@@ -72,7 +72,6 @@
       },
       "allow_null": 0,
       "other_choice": 0,
-      "default_value": "Hochschulrat",
       "layout": "horizontal",
       "return_format": "value",
       "save_other_choice": 0
@@ -90,7 +89,7 @@
           {
             "field": "field_615782b31819e",
             "operator": "==",
-            "value": "Hochschulgremium"
+            "value": "hochschulgremium"
           }
         ]
       ],
